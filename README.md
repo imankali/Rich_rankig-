@@ -20,4 +20,20 @@ Then open `http://localhost:4173`.
 - Takeover modal with calculated 20% premium
 - Protocol explainer and private members lounge sections
 
-The wallet and takeover flows are intentionally simulation-only. Smart contract integration can be added once the chain, contract, and tokenomics are finalized.
+## Base Sepolia contract scaffold
+
+The repository now includes a tested-first Hardhat scaffold for the Genesis contract:
+
+```bash
+npm install
+cp .env.example .env
+# Add a deployer key to .env, then:
+npx hardhat compile
+npm run deploy:sepolia
+# Put the printed address into CONTRACT_ADDRESS in .env
+npm run seed:sepolia
+```
+
+The contract is configured for Base Sepolia (`84532`) and supports 100 numbered ranks, a 20% takeover premium, configurable holder prices, ownership history, and transparent protocol/rewards fee accounting. It is not ready for mainnet until it is tested, funded with test ETH, and independently audited.
+
+The wallet and takeover flows in the static website remain simulation-only until the deployed contract address and ABI are wired into the frontend. Never put a seed phrase or private key in the repository.
