@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RICH / RANK — The Wealth Protocol</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="grain"></div>
+  <header class="nav wrap">
+    <a class="brand" href="#top"><span class="brand-mark">R</span><span>RICH<span class="gold"> / </span>RANK</span></a>
+    <nav><a href="#leaderboard">Leaderboard</a><a href="#protocol">The Protocol</a><a href="#club">The Club</a></nav>
+    <button class="wallet-btn" id="connectBtn"><span class="wallet-dot"></span><span id="walletText">Connect wallet</span></button>
+  </header>
+
+  <main id="top">
+    <section class="hero wrap">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse"></span> LIVE ON BASE <i></i> SEASON 01</div>
+        <h1>Own your place<br>at the <em>top.</em></h1>
+        <p class="hero-lede">A living register of wealth. The only way to rise is to outbid the person above you.</p>
+        <p class="persian">دفتر زنده ثروت — جایگاهت را بخر، و از آن محافظت کن.</p>
+        <div class="hero-actions"><a class="button primary" href="#leaderboard">Explore the ranks <span>↗</span></a><a class="text-link" href="#protocol">How it works <span>↓</span></a></div>
+      </div>
+      <div class="hero-card-wrap">
+        <div class="hero-card-glow"></div>
+        <div class="hero-card">
+          <div class="card-top"><span>R / R</span><span>NO. 001</span></div>
+          <div class="card-center"><div class="crown">♛</div><div class="card-title">THE<br><strong>APEX</strong></div><div class="card-line"></div><div class="card-caption">STATUS IS TEMPORARY<br>RANK IS FOREVER</div></div>
+          <div class="card-bottom"><span>BASE // 001</span><span>◈</span></div>
+        </div>
+        <div class="floating-tag tag-one"><span class="tag-icon">↑</span><div><small>LAST TAKEOVER</small><b>+20.0%</b></div></div>
+        <div class="floating-tag tag-two"><span class="avatar pink">A</span><div><small>RANK 01 HOLDER</small><b>0x71...9F2A</b></div></div>
+      </div>
+    </section>
+
+    <section class="ticker"><div class="ticker-inner"><span>◈ THE HIERARCHY IS ALIVE</span><span>RANK 01 <b>12.40 ETH</b></span><span>NEXT RE-RANK IN <b id="timer">08:42:16</b></span><span>◈ THE HIERARCHY IS ALIVE</span><span>RANK 01 <b>12.40 ETH</b></span></div></section>
+
+    <section class="leaderboard wrap" id="leaderboard">
+      <div class="section-heading"><div><div class="eyebrow">01 / THE LEDGER</div><h2>The leaderboard</h2></div><div class="heading-side"><span class="live-dot"></span> Updated block #19,482,901 <button class="refresh" id="refresh">↻</button></div></div>
+      <div class="leaderboard-tools"><div class="tabs"><button class="tab active" data-filter="all">All ranks</button><button class="tab" data-filter="top">Top 10</button><button class="tab" data-filter="rising">Rising fast</button></div><div class="network">NETWORK <strong><i></i> BASE</strong><span>⌄</span></div></div>
+      <div class="table"><div class="table-head"><span>RANK</span><span>HOLDER</span><span>VALUE</span><span>CHANGE</span><span></span></div><div id="rows"></div></div>
+      <div class="table-foot"><span>Showing <b id="showing">10</b> of 100 ranked cards</span><button class="load-more" id="loadMore">View full leaderboard <span>→</span></button></div>
+    </section>
+
+    <section class="protocol wrap" id="protocol"><div class="protocol-intro"><div class="eyebrow">02 / THE PROTOCOL</div><h2>Power is<br><em>dynamic.</em></h2><p>Every rank has a price. Every price can be challenged. When someone takes your place, you leave with profit.</p><a class="button outline" href="#club">Read the manifesto <span>↗</span></a></div><div class="steps"><div class="step"><span>01</span><div><h3>Choose your rank</h3><p>Find the position that matches your ambition. Each card is a living on-chain identity.</p></div></div><div class="step"><span>02</span><div><h3>Set your price</h3><p>Set a valuation. A challenger must pay 20% more to dethrone you.</p></div></div><div class="step"><span>03</span><div><h3>Defend your status</h3><p>Stay on top, or take your profit. The ledger never sleeps.</p></div></div></div></section>
+
+    <section class="club wrap" id="club"><div class="club-box"><div class="eyebrow">03 / MEMBERS ONLY</div><h2>The 1%<br><em>lounge.</em></h2><p>A private room for the top 10 holders. A network of people who don't need an introduction.</p><div class="members"><span class="avatar orange">M</span><span class="avatar blue">K</span><span class="avatar purple">S</span><span class="avatar green">J</span><span class="member-count">+ 86 members</span></div><button class="button primary" id="applyBtn">Apply for access <span>↗</span></button></div><div class="club-art"><div class="ring ring-a"></div><div class="ring ring-b"></div><div class="club-symbol">R<span>/</span>R</div><div class="art-label">PRIVATE ACCESS<br><small>HOLD RANK 01 — 10</small></div></div></section>
+  </main>
+  <footer class="footer wrap"><span class="brand"><span class="brand-mark">R</span> RICH<span class="gold"> / </span>RANK</span><span>© 2026 RICH / RANK PROTOCOL</span><span>BUILT FOR THE BOLD. <a href="#top">BACK TO TOP ↑</a></span></footer>
+
+  <div class="modal-overlay" id="modal"><div class="modal"><button class="close" id="closeModal">×</button><div class="eyebrow">TAKEOVER PROTOCOL</div><h2>Claim rank <em id="modalRank">#01</em></h2><p>You are about to challenge <b id="modalHolder">0x71...9F2A</b>. The current floor price is:</p><div class="modal-price"><strong id="modalPrice">14.88 ETH</strong><small>+20% takeover premium</small></div><button class="button primary full" id="confirmBtn">Confirm takeover <span>↗</span></button><small class="disclaimer">Simulation mode · No wallet transaction will be made</small></div></div>
+  <script src="app.js"></script>
+</body>
+</html>
