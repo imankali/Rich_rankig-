@@ -15,7 +15,9 @@ function render(list = ranks) {
   rows.innerHTML = list.map(r => `<div class="rank-row"><span class="rank-no">#${r.rank}</span><div class="holder"><span class="avatar ${r.color}">${r.flag}</span><div><strong>${r.name}</strong><small>${r.holder}</small></div></div><span class="value">${r.value}</span><span class="change ${r.change[0] === '-' ? 'down' : ''}">${r.change}</span><button class="challenge" data-rank="${r.rank}" data-holder="${r.holder}" data-price="${r.value}">↗</button></div>`).join('');
   document.getElementById('showing').textContent = list.length;
   document.querySelectorAll('.challenge').forEach(btn => btn.addEventListener('click', () => openModal(btn.dataset)));
+  document.querySelectorAll('.holder').forEach(holder => holder.addEventListener('click', () => copyHolder(holder)));
 }
+function copyHolder(holder) { navigator.clipboard?.writeText(holder.innerText); const toast=document.getElementById('rankToast'); toast.classList.add('show'); setTimeout(()=>toast.classList.remove('show'),1800); }
 function openModal(data) { document.getElementById('modalRank').textContent = `#${data.rank}`; document.getElementById('modalHolder').textContent = data.holder; document.getElementById('modalPrice').textContent = `${(parseFloat(data.price) * 1.2).toFixed(2)} ETH`; document.getElementById('modal').classList.add('open'); }
 render();
 document.querySelectorAll('.tab').forEach(tab => tab.addEventListener('click', () => { document.querySelectorAll('.tab').forEach(t => t.classList.remove('active')); tab.classList.add('active'); render(tab.dataset.filter === 'top' ? ranks.slice(0, 5) : tab.dataset.filter === 'rising' ? ranks.filter(r => r.change.startsWith('+') && parseFloat(r.change) > 5) : ranks); }));
@@ -27,3 +29,13 @@ document.getElementById('applyBtn').onclick = () => alert('Applications open soo
 document.getElementById('refresh').onclick = function(){ this.style.transform = 'rotate(360deg)'; setTimeout(() => this.style.transform = '', 500); };
 document.getElementById('loadMore').onclick = function(){ this.textContent = 'Full leaderboard coming soon →'; };
 let seconds = 8*3600+42*60+16; setInterval(() => { seconds = seconds > 0 ? seconds - 1 : 86399; const h=String(Math.floor(seconds/3600)).padStart(2,'0'), m=String(Math.floor(seconds%3600/60)).padStart(2,'0'), s=String(seconds%60).padStart(2,'0'); document.getElementById('timer').textContent = `${h}:${m}:${s}`; }, 1000);
+
+const activity = [
+  ['↗', 'JUST NOW', 'Rank #04 defended', '0xF2...882D', '6.70 ETH'],
+  ['◆', '2 MIN AGO', 'Rank #08 claimed', '0x0D...C318', '3.80 ETH'],
+  ['↑', '7 MIN AGO', 'Rank #02 rose', '0xB4...11C8', '+8.4%'],
+  ['◈', '12 MIN AGO', 'Rank #01 renewed', '0x71...9F2A', '12.40 ETH']
+];
+document.getElementById('activityGrid').innerHTML = activity.map(a => `<article class="activity-item"><div class="activity-icon">${a[0]}</div><small>${a[1]}</small><strong>${a[2]}</strong><p>${a[3]} <b>${a[4]}</b></p></article>`).join('');
+document.getElementById('seasonBtn').onclick = () => document.getElementById('leaderboard').scrollIntoView({behavior:'smooth'});
+
